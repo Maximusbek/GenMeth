@@ -16,12 +16,12 @@ public static WebElement getElementWithWait(By by, int duration, int frequency, 
 
 	Wait<WebDriver>wait=new FluentWait<WebDriver>(driver).withTimeout(duration, TimeUnit.SECONDS)
 							.pollingEvery(frequency, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
-	
+
 	WebElement message=wait.until(new Function<WebDriver, WebElement>(){
 		public WebElement apply(WebDriver driver) {
 			return driver.findElement(by);
 		}
-	
+
 	});
 	return message;
 }
